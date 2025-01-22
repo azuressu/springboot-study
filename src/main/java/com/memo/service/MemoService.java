@@ -34,6 +34,11 @@ public class MemoService {
         return memoRepository.findAllByOrderByModifiedAtDesc().stream().map(MemoResponseDto::new).toList();
     }
 
+    public List<MemoResponseDto> getMemosByKeyword(String keyword) {
+        // Search Memos In Repo
+        return memoRepository.findAllByContentsContainsOrderByModifiedAtDesc(keyword).stream().map(MemoResponseDto::new).toList();
+    }
+
     @Transactional
     public Long updateMemo(Long id, MemoRequestDto requestDto) {
         // Search Memo In Repo
