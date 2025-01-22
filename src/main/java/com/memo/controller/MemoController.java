@@ -53,4 +53,38 @@ public class MemoController {
         // Return
         return memoResponseDtos;
     }
+
+    /**
+     * 메모 수정 API 
+     * @param id : 수정할 메모의 ID
+     * @param memoRequestDto : 수정할 메모의 username, contents
+     * @return : 수정한 메모의 ID 반환
+     */
+    @PutMapping("/memos/{id}")
+    public Long updateMemo(@PathVariable Long id, @RequestBody MemoRequestDto memoRequestDto) {
+        // Search Memo In List
+        if (memoList.containsKey(id)) {
+            // Get Memo
+            Memo memo = memoList.get(id);
+            // Memo Update
+            memo.update(memoRequestDto);
+            // Return
+            return memo.getId();
+        } else {
+            throw new IllegalStateException("선택한 메모는 존재하지 않습니다.");
+        }
+    }
+
+    @DeleteMapping("/memos/{id}")
+    public Long deleteMemo(@PathVariable Long id) {
+        // Search Memo In List
+        if(memoList.containsKey(id)) {
+            // Memo Delete
+            memoList.remove(id);
+            // Return
+            return id;
+        } else {
+            throw new IllegalStateException("선택한 메모는 존재하지 않습니다.");
+        }
+    }
 }
