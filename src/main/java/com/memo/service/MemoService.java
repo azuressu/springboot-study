@@ -4,16 +4,17 @@ import com.memo.dto.MemoRequestDto;
 import com.memo.dto.MemoResponseDto;
 import com.memo.entity.Memo;
 import com.memo.repository.MemoRepository;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
+@RequiredArgsConstructor
 public class MemoService {
 
     private final MemoRepository memoRepository;
-
-    public MemoService(MemoRepository memoRepository) {
-        this.memoRepository = memoRepository;
-    }
 
     public MemoResponseDto createMemo(MemoRequestDto requestDto) {
         // RequestDto -> Entity

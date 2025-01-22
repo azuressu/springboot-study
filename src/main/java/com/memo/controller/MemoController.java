@@ -3,19 +3,17 @@ package com.memo.controller;
 import com.memo.dto.MemoRequestDto;
 import com.memo.dto.MemoResponseDto;
 import com.memo.service.MemoService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 @RequestMapping("/api")
+@RequiredArgsConstructor
 public class MemoController {
 
     private final MemoService memoService;
-
-    public MemoController(MemoService memoService) {
-        this.memoService = memoService;
-    }
 
     @PostMapping("/memos")
     public MemoResponseDto createMemo(@RequestBody MemoRequestDto requestDto) {
