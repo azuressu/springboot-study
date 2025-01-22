@@ -31,7 +31,7 @@ public class MemoService {
 
     public List<MemoResponseDto> getMemos() {
         // Search Memos In Repo
-        return memoRepository.findAll().stream().map(MemoResponseDto::new).toList();
+        return memoRepository.findAllByOrderByModifiedAtDesc().stream().map(MemoResponseDto::new).toList();
     }
 
     @Transactional
