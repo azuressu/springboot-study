@@ -9,6 +9,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 
 import java.io.UnsupportedEncodingException;
@@ -17,6 +18,7 @@ import java.security.Key;
 import java.util.Base64;
 import java.util.Date;
 
+@Component
 public class JwtUtil { // Util: 다른 객체에 의존하지 않고 하나의 모듈로서 동작하는 클래스
     // Header key 값
     public static final String AUTHORIZATION_HEADER = "Authorization";
