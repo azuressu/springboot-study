@@ -15,6 +15,7 @@ public enum UserRoleEnum {
     }
 
     public static class Authority {
+        // 권한 이름은 ROLE_로 시작해야 함
         public static final String USER = "ROLE_USER";
         public static final String ADMIN = "ROLE_ADMIN";
     }
