@@ -34,6 +34,7 @@ public class RestTemplateController {
         return restTemplateService.postCall(query);
     }
 
+    // RequestHeader에 직접 담아서 보냄 (key-Authorization, value-token 값)
     @GetMapping("/exchange-call")
     public List<ItemDto> exchangeCall(@RequestHeader("Authorization") String token) {
         return restTemplateService.exchangeCall(token);
